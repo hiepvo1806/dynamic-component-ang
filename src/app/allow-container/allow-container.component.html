@@ -1,0 +1,10 @@
+<div style="display:block">
+  <span>Drop on div below</span>
+  <div 
+    style="display:block;height:300px;width:100%;background-color:blue" 
+    (dragover)="allowDrop($event)"
+    (drop)="onDrop($event)"
+    (dragenter)="dragenter($event)"
+    (dragleave)="dragleave($event)"
+    ></div>
+</div>
