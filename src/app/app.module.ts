@@ -6,13 +6,15 @@ import * as $ from 'jquery';
 import { AllowContainerComponent } from './allow-container/allow-container.component';
 import { DropComponentComponent } from './drop-component/drop-component.component';
 import { HostingElementDirective } from './hosting-element.directive';
+import { ComponentFactoryComponent } from './component-factory/component-factory.component';
 declare let document: any;
 @NgModule({
   declarations: [
     AppComponent,
     AllowContainerComponent,
     DropComponentComponent,
-    HostingElementDirective
+    HostingElementDirective,
+    ComponentFactoryComponent
   ],
   imports: [
     BrowserModule
