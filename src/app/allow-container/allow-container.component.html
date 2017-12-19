@@ -1,8 +1,12 @@
-<div style="display:block">
-  <span>Drop on div below</span>
-  <div style="display:inline-block;height:300px;width:100%;background-color:blue" (dragover)="allowDrop($event)" (drop)="onDrop($event)"
-    (dragenter)="dragenter($event)" (dragleave)="dragleave($event)">
-    <div appHostingElement></div>
+<div class="ui-g">
+  <div class="ui-g-12">
+    <span>Drop in the panel bellow</span>
   </div>
-
+</div>
+<div class="card">
+  <div class="card-block" style="padding:4px;width:100%;height:300px" (dragover)="allowDrop($event)" (drop)="onDrop($event)"
+  (dragenter)="dragenter($event)" (dragleave)="dragleave($event)">
+      <h4 class="card-title">Card title</h4>
+      <div appHostingElement></div>
+  </div>
 </div>

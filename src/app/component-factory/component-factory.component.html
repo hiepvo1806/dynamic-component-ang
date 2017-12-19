@@ -1,31 +1,28 @@
-
 <div class="ui-g">
     <p-panel header="Component Factory">
         <div class="ui-g">
-                <div class="ui-g-12">
-                        <div class="ui-g-4">
-                            Choose the Component
-                        </div>
-                        <div class="ui-g-8">
-                            <p-dropdown [options]="componentOptions" [autoWidth]="false" [(ngModel)]="choseComponent"></p-dropdown>
-                        </div>
-                    </div>
-                    <div class="ui-g-12">
-                        <div class="ui-g-4">
-                            Choose the css class
-                        </div>
-                        <div class="ui-g-8">
-                            <p-dropdown [options]="classOptions" [(ngModel)]="choseClass" [autoWidth]="false"></p-dropdown>
-                        </div>
-                    </div>
-                    <div class="ui-g-12">
-                        <div class="ui-g-8">
-                            <button pButton label="Generate" type="button" (click)="generate()"></button>
-                        </div>
-                    </div>
+            <div class="ui-g-12">
+                <div class="ui-g-4">
+                    Choose the Component
+                </div>
+                <div class="ui-g-8">
+                    <p-dropdown [options]="componentOptions" [autoWidth]="false" [(ngModel)]="choseComponent"></p-dropdown>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <div class="ui-g-4">
+                    Choose the css class
+                </div>
+                <div class="ui-g-8">
+                    <p-dropdown [options]="classOptions" [(ngModel)]="choseClass" [autoWidth]="false"></p-dropdown>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <div class="ui-g-8">
+                    <button pButton label="Generate" type="button" (click)="generate()"></button>
+                </div>
+            </div>
         </div>
-        
-      </p-panel>
-     
+    </p-panel>
 </div>
 <router-outlet></router-outlet>
