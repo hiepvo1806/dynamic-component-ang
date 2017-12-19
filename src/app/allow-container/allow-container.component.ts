@@ -15,7 +15,8 @@ export class AllowContainerComponent implements OnInit {
   onDrop(ev: any) {
     ev.preventDefault();
     ev.stopPropagation();
-    console.log(event)
+    var data = ev.dataTransfer.getData("text");
+    console.log(data);
   }
 
   allowDrop(ev) {
