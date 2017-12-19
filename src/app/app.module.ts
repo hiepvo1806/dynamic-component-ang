@@ -38,7 +38,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     PanelModule ,DropdownModule,ButtonModule
   ],
-  entryComponents: [DropComponentComponent],
+  entryComponents: [DropComponentComponent,DropComponent2Component,DropComponent3Component],
   providers: [],
   bootstrap: [AppComponent]
 })
