@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 import * as $ from 'jquery';
 declare let document: any;
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,9 +14,9 @@ import { PanelModule  ,DropdownModule,ButtonModule} from 'primeng/primeng';
 import { DropComponent2Component } from './drop-component-2/drop-component-2.component';
 import { DropComponent3Component } from './drop-component-3/drop-component-3.component';
 import { AppMenuComponent } from './app-menu/app-menu.component';
-import { SharedService} from "./base/shared.service";
+import { SharedService } from "./base/shared.service";
 import { enableProdMode } from '@angular/core/src/application_ref';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 const appRoutes: Routes = [
   { path: 'dropComponent1', component: DropComponentComponent },
   { path: 'dropComponent2', component: DropComponent2Component },
@@ -36,12 +36,12 @@ const appRoutes: Routes = [
     AppMenuComponent
   ],
   imports: [
-    BrowserModule,FormsModule,
+    BrowserModule, FormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     PanelModule ,DropdownModule,ButtonModule
   ],
-  entryComponents: [AppMenuComponent,DropComponentComponent,DropComponent2Component,DropComponent3Component],
+  entryComponents: [AppMenuComponent, DropComponentComponent, DropComponent2Component, DropComponent3Component],
   providers: [SharedService],
   bootstrap: [AppComponent]
 })

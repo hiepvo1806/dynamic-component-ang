@@ -5,18 +5,18 @@
   <div id="page-content-wrapper">
     <div class="container-fluid">
       <div class="row">
-          <div class="btn-group float-lg-right" role="group" aria-label="Basic example" style="float:right">
-              <button type="button" class="btn btn-secondary" (click)="toggleMenu()" >Toggle Menu</button>
-              <button type="button" class="btn btn-secondary" (click)="showObjState()">Print State</button>
-              <button type="button" class="btn btn-secondary" (click)="saveObjState()">Save</button>
-              <button type="button" class="btn btn-secondary" (click)="getObjState()">Reload</button>
-            </div>
+        <div class="col-12">
+            <div class="btn-group float-lg-right" role="group" aria-label="Basic example" style="float:right">
+                <button type="button" class="btn btn-secondary" (click)="toggleMenu()" >Toggle Menu</button>
+                <button type="button" class="btn btn-secondary" (click)="showObjState()">Print State</button>
+                <button type="button" class="btn btn-secondary" (click)="saveObjState()">Save</button>
+                <button type="button" class="btn btn-secondary" (click)="getObjState()">Reload</button>
+              </div>
+        </div>
       </div>
-     
       <div class="row">
-          <app-component-factory></app-component-factory>
+          <div app-component-factory class="col-12"></div>
       </div>
-     
       <app-allow-container></app-allow-container>
     </div>
   </div>

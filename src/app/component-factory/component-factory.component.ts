@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { SelectItem } from 'primeng/primeng';
+
 @Component({
-  selector: 'app-component-factory',
+  selector: '[app-component-factory]',
   templateUrl: './component-factory.component.html',
   styleUrls: ['./component-factory.component.css']
 })
