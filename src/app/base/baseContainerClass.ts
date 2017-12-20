@@ -1,6 +1,6 @@
 import { PayLoad, BaseDropClass } from "../base/baseDropClass";
 import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChild } from '@angular/core';
-
+import { RemoveComponentPayload } from "./removeComponentPayLoad";
 export class BaseContainerClass {
 
     private componentDict = {};
@@ -20,11 +20,11 @@ export class BaseContainerClass {
         var dataStr = ev.dataTransfer.getData("text");
         var data = JSON.parse(dataStr) as PayLoad;
         this.loadComponent(data, this.isDuplicateAllow);
-        console.log(data);
     }
 
-    trackingRemove(removePayload: any) {
-        console.log("trackingRemove", removePayload);
+    trackingRemove(removePayload: RemoveComponentPayload) {
+        this.componentArr.splice(removePayload.index,1);
+        console.log(this.componentArr);
     }
 
     loadComponent(payload: PayLoad, isDuplicateAllow: boolean = false) {
@@ -43,17 +43,16 @@ export class BaseContainerClass {
 
     allowDrop(ev) {
         ev.preventDefault();
-        //console.log(event)
         return false;
     }
 
     dragenter(ev) {
         //ev.preventDefault();
-        console.log(event)
+        //console.log(event)
     }
 
     dragleave(ev) {
         //ev.preventDefault();
-        console.log(event)
+        //console.log(event)
     }
 }
