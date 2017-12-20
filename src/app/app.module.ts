@@ -13,6 +13,7 @@ import { ComponentFactoryComponent } from './component-factory/component-factory
 import { PanelModule  ,DropdownModule,ButtonModule} from 'primeng/primeng';
 import { DropComponent2Component } from './drop-component-2/drop-component-2.component';
 import { DropComponent3Component } from './drop-component-3/drop-component-3.component';
+import { AppMenuComponent } from './app-menu/app-menu.component';
 
 
 const appRoutes: Routes = [
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     HostingElementDirective,
     ComponentFactoryComponent,
     DropComponent2Component,
-    DropComponent3Component
+    DropComponent3Component,
+    AppMenuComponent
   ],
   imports: [
     BrowserModule,FormsModule,

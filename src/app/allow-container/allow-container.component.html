@@ -4,9 +4,12 @@
   </div>
 </div>
 <div class="card">
-  <div class="card-block" style="padding:4px;width:100%;height:300px" (dragover)="allowDrop($event)" (drop)="onDrop($event)"
-  (dragenter)="dragenter($event)" (dragleave)="dragleave($event)">
-      <h4 class="card-title">Card title</h4>
-      <div appHostingElement></div>
+  <div class="card-block" 
+    style="padding:4px;width:100%;height:300px" 
+    (dragover)="allowDrop($event)" 
+    (drop)="onDrop($event)"
+    (dragenter)="dragenter($event)" 
+    (dragleave)="dragleave($event)">
+        <div class="container" appHostingElement></div>
   </div>
 </div>
