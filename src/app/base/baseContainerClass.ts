@@ -1,20 +1,33 @@
 import { PayLoad, BaseDropClass } from "../base/baseDropClass";
 import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChild } from '@angular/core';
 import { RemoveComponentPayload } from "./removeComponentPayLoad";
-import {SharedService} from "./shared.service";
+import { SharedService } from "./shared.service";
 export class BaseContainerClass {
 
     private componentDict = {};
     private hostElement: any;
     private componentArr = [];
     private staticComponentName = "";
-    constructor(private _sharedService:SharedService, componentDict: any, private componentFactoryResolver: ComponentFactoryResolver, private isDuplicateAllow: boolean) {
+    constructor(public _sharedService: SharedService, componentDict: any, private componentFactoryResolver: ComponentFactoryResolver, private isDuplicateAllow: boolean) {
         this.componentDict = componentDict;
     }
 
-    setContainerInfo(info:ContainerInfo) {
+    setContainerInfo(info: ContainerInfo) {
         this.hostElement = info.hostingElement;
         this.staticComponentName = info.staticComponentName;
+    }
+
+    reRenderState(r: any) {
+        if (r[this.staticComponentName]) {
+            var compArr = r[this.staticComponentName];
+            compArr.forEach(element => {
+                this.loadComponent({
+                    componentType: element,
+                    cssClass: "",
+                    paramsComponent: null
+                },this.isDuplicateAllow);
+            });
+        } 
     }
 
     onDrop(ev: any) {
@@ -26,9 +39,9 @@ export class BaseContainerClass {
     }
 
     trackingRemove(removePayload: RemoveComponentPayload) {
-        this.componentArr.splice(removePayload.index,1);
+        this.componentArr.splice(removePayload.index, 1);
         console.log(this.componentArr);
-        this._sharedService.registerNewComponent(this.staticComponentName,this.componentArr);
+        this._sharedService.registerNewComponent(this.staticComponentName, this.componentArr);
     }
 
     loadComponent(payload: PayLoad, isDuplicateAllow: boolean = false) {
@@ -37,12 +50,12 @@ export class BaseContainerClass {
         let viewContainerRef = this.hostElement.viewContainerRef;
         if (!isDuplicateAllow) viewContainerRef.clear();
         let componentRef = viewContainerRef.createComponent(componentFactory);
-        this.componentArr.push(foundComponent);
-        this._sharedService.registerNewComponent(this.staticComponentName,this.componentArr);
+        this.componentArr.push(payload.componentType);
+        this._sharedService.registerNewComponent(this.staticComponentName, this.componentArr);
         var trueTypeComponent = componentRef._component as BaseDropClass;
         trueTypeComponent.index = this.componentArr.length;
         trueTypeComponent.parentRef = viewContainerRef;
-        trueTypeComponent.deleteObs.subscribe(r => this.trackingRemove(r));        
+        trueTypeComponent.deleteObs.subscribe(r => this.trackingRemove(r));
         //(<AdComponent>componentRef.instance).data = adItem.data;
     }
 
@@ -63,6 +76,6 @@ export class BaseContainerClass {
 }
 
 export class ContainerInfo {
-    hostingElement:any;
-    staticComponentName:string;
+    hostingElement: any;
+    staticComponentName: string;
 }

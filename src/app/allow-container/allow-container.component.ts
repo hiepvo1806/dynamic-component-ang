@@ -2,7 +2,7 @@ import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChil
 import { HostingElementDirective } from "../hosting-element.directive";
 import { BaseContainerClass } from "../base/baseContainerClass";
 import { Helper } from "../base/helper";
-import {SharedService} from "../base/shared.service";
+import { SharedService } from "../base/shared.service";
 @Component({
   selector: 'app-allow-container',
   templateUrl: './allow-container.component.html',
@@ -11,13 +11,18 @@ import {SharedService} from "../base/shared.service";
 export class AllowContainerComponent extends BaseContainerClass implements AfterViewInit {
   @ViewChild(HostingElementDirective) _hostElement: HostingElementDirective;
 
-  constructor(componentFactoryResolver: ComponentFactoryResolver,sharedService:SharedService) {
-    super(sharedService, Helper.CreateComponentDict(), componentFactoryResolver,true);
+  constructor(componentFactoryResolver: ComponentFactoryResolver, sharedService: SharedService) {
+    super(sharedService, Helper.CreateComponentDict(), componentFactoryResolver, true);
+
   }
 
   ngAfterViewInit() {
     this.setContainerInfo({
-      staticComponentName:"middle-component",
-      hostingElement: this._hostElement});
+      staticComponentName: "middle-component",
+      hostingElement: this._hostElement
+    });
+    this._sharedService.reRenderObj.subscribe(r => {
+      this.reRenderState(r);
+    });
   }
 }

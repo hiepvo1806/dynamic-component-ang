@@ -15,6 +15,7 @@ import { DropComponent2Component } from './drop-component-2/drop-component-2.com
 import { DropComponent3Component } from './drop-component-3/drop-component-3.component';
 import { AppMenuComponent } from './app-menu/app-menu.component';
 import { SharedService} from "./base/shared.service";
+import { enableProdMode } from '@angular/core/src/application_ref';
 
 const appRoutes: Routes = [
   { path: 'dropComponent1', component: DropComponentComponent },
@@ -44,4 +45,5 @@ const appRoutes: Routes = [
   providers: [SharedService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -19,5 +19,8 @@ export class AppMenuComponent extends BaseContainerClass {
       staticComponentName: "menu-component",
       hostingElement: this._hostElement
     });
+    this._sharedService.reRenderObj.subscribe(r => {
+      this.reRenderState(r);
+    });
   }
 }
