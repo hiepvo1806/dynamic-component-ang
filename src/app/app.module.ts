@@ -40,7 +40,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     PanelModule ,DropdownModule,ButtonModule
   ],
-  entryComponents: [DropComponentComponent,DropComponent2Component,DropComponent3Component],
+  entryComponents: [AppMenuComponent,DropComponentComponent,DropComponent2Component,DropComponent3Component],
   providers: [],
   bootstrap: [AppComponent]
 })

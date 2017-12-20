@@ -1,6 +1,4 @@
 import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChild, AfterViewInit } from '@angular/core';
-import { PayLoad } from "../base/baseDropClass";
-import { DropComponentComponent } from "../drop-component/drop-component.component"
 import { HostingElementDirective } from "../hosting-element.directive";
 import { BaseContainerClass } from "../base/baseContainerClass";
 import { Helper } from "../base/helper";

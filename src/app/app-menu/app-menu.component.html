@@ -1,9 +1,10 @@
-<ul class="sidebar-nav">
-  <li class="sidebar-brand">
+<ul class="sidebar-nav"
+  style="position: static;width:100%">
+  <!-- <li class="sidebar-brand">
     <a href="#">
       Start Bootstrap
     </a>
-  </li>
+  </li> -->
   <li>
     <a href="#">Dashboard</a>
   </li>
@@ -26,3 +27,13 @@
     <a href="#">Contact</a>
   </li>
 </ul>
+<div style="display:block;width:100%;height:300px;"
+  (dragover)="allowDrop($event)" 
+  (drop)="onDrop($event)"
+  (dragenter)="dragenter($event)" 
+  (dragleave)="dragleave($event)">
+    >
+  <div class="container" appHostingElement>
+    
+  </div>
+</div>
