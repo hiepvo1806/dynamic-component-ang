@@ -8,7 +8,7 @@ import { SharedService } from "../base/shared.service";
   templateUrl: './allow-container.component.html',
   styleUrls: ['./allow-container.component.css']
 })
-export class AllowContainerComponent extends BaseContainerClass implements AfterViewInit {
+export class AllowContainerComponent extends BaseContainerClass {
   @ViewChild(HostingElementDirective) _hostElement: HostingElementDirective;
 
   constructor(componentFactoryResolver: ComponentFactoryResolver, sharedService: SharedService) {
@@ -16,13 +16,15 @@ export class AllowContainerComponent extends BaseContainerClass implements After
 
   }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.setContainerInfo({
       staticComponentName: "middle-component",
       hostingElement: this._hostElement
     });
     this._sharedService.reRenderObj.subscribe(r => {
-      this.reRenderState(r);
+      setTimeout(() => {
+        this.reRenderState(r);
+      }, 100);
     });
   }
 }
