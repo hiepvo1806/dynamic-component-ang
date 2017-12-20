@@ -1,12 +1,12 @@
-import { PayLoad } from "../base/baseDropClass";
+import { PayLoad, BaseDropClass } from "../base/baseDropClass";
 import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChild } from '@angular/core';
 
 export class BaseContainerClass {
-    
+
     private componentDict = {};
     private hostElement: any;
-    private componentArr=[];
-    constructor(componentDict: any, private componentFactoryResolver: ComponentFactoryResolver,private isDuplicateAllow:boolean) {
+    private componentArr = [];
+    constructor(componentDict: any, private componentFactoryResolver: ComponentFactoryResolver, private isDuplicateAllow: boolean) {
         this.componentDict = componentDict;
     }
 
@@ -19,8 +19,12 @@ export class BaseContainerClass {
         ev.stopPropagation();
         var dataStr = ev.dataTransfer.getData("text");
         var data = JSON.parse(dataStr) as PayLoad;
-        this.loadComponent(data,this.isDuplicateAllow);
+        this.loadComponent(data, this.isDuplicateAllow);
         console.log(data);
+    }
+
+    trackingRemove(removePayload: any) {
+        console.log("trackingRemove", removePayload);
     }
 
     loadComponent(payload: PayLoad, isDuplicateAllow: boolean = false) {
@@ -30,8 +34,10 @@ export class BaseContainerClass {
         if (!isDuplicateAllow) viewContainerRef.clear();
         let componentRef = viewContainerRef.createComponent(componentFactory);
         this.componentArr.push(foundComponent);
-        componentRef._component.index = this.componentArr.length;
-        componentRef._component.parentRef = viewContainerRef;
+        var trueTypeComponent = componentRef._component as BaseDropClass;
+        trueTypeComponent.index = this.componentArr.length;
+        trueTypeComponent.parentRef = viewContainerRef;
+        trueTypeComponent.deleteObs.subscribe(r => this.trackingRemove(r));
         //(<AdComponent>componentRef.instance).data = adItem.data;
     }
 
