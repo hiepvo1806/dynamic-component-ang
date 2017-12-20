@@ -1,9 +1,34 @@
-<div id="drag2" draggable="true" (dragstart)="drag($event)" style="background: green; height:60px;display:inline-block;"
-  class="col-lg-4 col-sm-12 col-md-6 col-xl-4 drop-comp">
-  <div class="ui-g-12">
-    <div class="ui-g-8">
-      <button pButton label="Destroy" type="button" (click)="destroy()"></button>
-      <span>component 2</span>
+<div id="drag2" draggable="true" (dragstart)="drag($event)" style="display:inline-block;"
+  class="col-6 drop-comp">
+  <form>
+    <fieldset class="form-group">
+      <legend>Radio buttons</legend>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+          Option one is this and that&mdash;be sure to include why it's great
+        </label>
+      </div>
+      <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+          Option two can be something else and selecting it will deselect option one
+        </label>
+      </div>
+      <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+          Option three is disabled
+        </label>
+      </div>
+    </fieldset>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input">
+        Check me out
+      </label>
     </div>
-  </div>
+    <button type="submit" class="btn btn-primary">Check out</button>
+    <button type="button"  class="btn btn-danger" (click)="destroy()">Destroy</button>
+  </form>
 </div>

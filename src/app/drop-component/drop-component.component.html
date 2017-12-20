@@ -1,8 +1,27 @@
-<div draggable="true" (dragstart)="drag($event)" style="background: yellow; height:60px;display:inline-block;" class="col-lg-4 col-sm-12 col-md-6 col-xl-4 drop-comp">
-    <div class="ui-g-12">
-        <div class="ui-g-8">
-            <button pButton label="Destroy" type="button" (click)="destroy()"></button>
-            <span>component 1</span>
+<div draggable="true" (dragstart)="drag($event)" style="background:transparent;display:inline-block;" 
+    class="col-6 drop-comp">
+
+    <form style="padding:5px">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
-    </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="exampleSelect1">Example select</label>
+            <select class="form-control" id="exampleSelect1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button"  class="btn btn-danger" (click)="destroy()">Destroy</button>
+    </form>
 </div>

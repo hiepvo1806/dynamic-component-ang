@@ -1,16 +1,16 @@
-<div class="ui-g">
+<div class="col-12" style="width:100%">
     <div class="ui-g-12">
-            <p-panel header="Component Factory">
-                    <div class="ui-g">
-                        <div class="ui-g-12 ui-md-6">
-                            <div class="ui-g-12 ui-md-12">
-                                <div class="ui-g-6">Choose the Component</div>
-                                <div class="ui-g-6">
-                                        <p-dropdown [options]="componentOptions" [autoWidth]="false" [(ngModel)]="choseComponent" (onChange)="generate()"></p-dropdown>
-                                </div>
-                            </div>
+        <p-panel header="Component Factory">
+            <div class="ui-g col-12">
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-g-12 ui-md-12">
+                        <div class="ui-g-6">Choose the Component</div>
+                        <div class="ui-g-6">
+                            <p-dropdown [options]="componentOptions" [autoWidth]="false" [(ngModel)]="choseComponent" (onChange)="generate()"></p-dropdown>
                         </div>
-                        <!-- <div class="ui-g-12">
+                    </div>
+                </div>
+                <!-- <div class="ui-g-12">
                             <div class="ui-g-4">
                                 Choose the css class
                             </div>
@@ -18,17 +18,17 @@
                                 <p-dropdown [options]="classOptions" [(ngModel)]="choseClass" [autoWidth]="false"></p-dropdown>
                             </div>
                         </div> -->
-                        <!-- <div class="ui-g-12">
+                <!-- <div class="ui-g-12">
                             <div class="ui-g-8">
                                 <button pButton label="Generate" type="button" (click)="generate()"></button>
                             </div>
                         </div> -->
-                        <div class="ui-g-12">
-                                <router-outlet></router-outlet>
-                        </div>
-                       
-                    </div>
-                </p-panel>
+                <div class="ui-g-12 ui-md-12">
+                    <router-outlet></router-outlet>
+                </div>
+
+            </div>
+        </p-panel>
     </div>
-    
+
 </div>

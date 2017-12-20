@@ -19,6 +19,8 @@ export class BaseContainerClass {
 
     reRenderState(r: any) {
         if (r[this.staticComponentName]) {
+            this.componentArr = [];
+            this.clearAllComponent();
             var compArr = r[this.staticComponentName];
             compArr.forEach(element => {
                 this.loadComponent({
@@ -28,6 +30,11 @@ export class BaseContainerClass {
                 },this.isDuplicateAllow);
             });
         } 
+    }
+
+    clearAllComponent(){
+        let viewContainerRef = this.hostElement.viewContainerRef;
+        viewContainerRef.clear();
     }
 
     onDrop(ev: any) {

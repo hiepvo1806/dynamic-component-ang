@@ -1,9 +1,25 @@
-<div id="drag3" draggable="true" (dragstart)="drag($event)" style="background: red; height:60px;display:inline-block;"
-class="col-lg-4 col-sm-12 col-md-6 col-xl-4 drop-comp">
-<div class="ui-g-12">
-    <div class="ui-g-8">
-      <button pButton label="Destroy" type="button" (click)="destroy()"></button>
-      <span>component 3</span>
-    </div>
-  </div>
+<div id="drag3" draggable="true" (dragstart)="drag($event)" style="display:inline-block;"
+  class="col-6 drop-comp">
+<form>
+    <div class="form-group has-success">
+        <label class="form-control-label" for="inputSuccess1">Input with success</label>
+        <input type="text" class="form-control form-control-success" id="inputSuccess1">
+        <div class="form-control-feedback">Success! You've done it.</div>
+        <small class="form-text text-muted">Example help text that remains unchanged.</small>
+      </div>
+      <div class="form-group has-warning">
+        <label class="form-control-label" for="inputWarning1">Input with warning</label>
+        <input type="text" class="form-control form-control-warning" id="inputWarning1">
+        <div class="form-control-feedback">Shucks, check the formatting of that and try again.</div>
+        <small class="form-text text-muted">Example help text that remains unchanged.</small>
+      </div>
+      <div class="form-group has-danger">
+        <label class="form-control-label" for="inputDanger1">Input with danger</label>
+        <input type="text" class="form-control form-control-danger" id="inputDanger1">
+        <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
+        <small class="form-text text-muted">Example help text that remains unchanged.</small>
+      </div>
+      <button type="submit" class="btn btn-primary">Check out</button>
+      <button type="button"  class="btn btn-danger" (click)="destroy()">Destroy</button>
+</form>
 </div>
