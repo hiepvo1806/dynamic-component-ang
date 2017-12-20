@@ -14,7 +14,7 @@ export class DropComponent2Component extends BaseDropClass implements OnInit {
       paramsComponent: {
         id: 6
       }
-    });
+    },viewContainerRef);
   }
 
   ngOnInit() {

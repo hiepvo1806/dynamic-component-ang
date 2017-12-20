@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewContainerRef } from '@angular/core';
 import { PayLoad, BaseDropClass } from '../base/baseDropClass';
 @Component({
   selector: 'app-drop-component-3',
@@ -7,14 +7,14 @@ import { PayLoad, BaseDropClass } from '../base/baseDropClass';
 })
 export class DropComponent3Component extends BaseDropClass implements OnInit {
 
-  constructor() {
+  constructor(public viewContainerRef: ViewContainerRef) {
     super({
       componentType: "DropComponent3Component",
       cssClass: "cls-4",
       paramsComponent: {
         id: 5
       }
-    });
+    },viewContainerRef);
   }
 
   ngOnInit() {
