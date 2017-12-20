@@ -1,17 +1,20 @@
 import { PayLoad, BaseDropClass } from "../base/baseDropClass";
 import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChild } from '@angular/core';
 import { RemoveComponentPayload } from "./removeComponentPayLoad";
+import {SharedService} from "./shared.service";
 export class BaseContainerClass {
 
     private componentDict = {};
     private hostElement: any;
     private componentArr = [];
-    constructor(componentDict: any, private componentFactoryResolver: ComponentFactoryResolver, private isDuplicateAllow: boolean) {
+    private staticComponentName = "";
+    constructor(private _sharedService:SharedService, componentDict: any, private componentFactoryResolver: ComponentFactoryResolver, private isDuplicateAllow: boolean) {
         this.componentDict = componentDict;
     }
 
-    setContainerRef(hostingElement) {
-        this.hostElement = hostingElement;
+    setContainerInfo(info:ContainerInfo) {
+        this.hostElement = info.hostingElement;
+        this.staticComponentName = info.staticComponentName;
     }
 
     onDrop(ev: any) {
@@ -25,6 +28,7 @@ export class BaseContainerClass {
     trackingRemove(removePayload: RemoveComponentPayload) {
         this.componentArr.splice(removePayload.index,1);
         console.log(this.componentArr);
+        this._sharedService.registerNewComponent(this.staticComponentName,this.componentArr);
     }
 
     loadComponent(payload: PayLoad, isDuplicateAllow: boolean = false) {
@@ -34,10 +38,11 @@ export class BaseContainerClass {
         if (!isDuplicateAllow) viewContainerRef.clear();
         let componentRef = viewContainerRef.createComponent(componentFactory);
         this.componentArr.push(foundComponent);
+        this._sharedService.registerNewComponent(this.staticComponentName,this.componentArr);
         var trueTypeComponent = componentRef._component as BaseDropClass;
         trueTypeComponent.index = this.componentArr.length;
         trueTypeComponent.parentRef = viewContainerRef;
-        trueTypeComponent.deleteObs.subscribe(r => this.trackingRemove(r));
+        trueTypeComponent.deleteObs.subscribe(r => this.trackingRemove(r));        
         //(<AdComponent>componentRef.instance).data = adItem.data;
     }
 
@@ -55,4 +60,9 @@ export class BaseContainerClass {
         //ev.preventDefault();
         //console.log(event)
     }
+}
+
+export class ContainerInfo {
+    hostingElement:any;
+    staticComponentName:string;
 }

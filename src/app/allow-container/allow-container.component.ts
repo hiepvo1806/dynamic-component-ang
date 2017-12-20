@@ -2,6 +2,7 @@ import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChil
 import { HostingElementDirective } from "../hosting-element.directive";
 import { BaseContainerClass } from "../base/baseContainerClass";
 import { Helper } from "../base/helper";
+import {SharedService} from "../base/shared.service";
 @Component({
   selector: 'app-allow-container',
   templateUrl: './allow-container.component.html',
@@ -10,11 +11,13 @@ import { Helper } from "../base/helper";
 export class AllowContainerComponent extends BaseContainerClass implements AfterViewInit {
   @ViewChild(HostingElementDirective) _hostElement: HostingElementDirective;
 
-  constructor(componentFactoryResolver: ComponentFactoryResolver) {
-    super(Helper.CreateComponentDict(), componentFactoryResolver,true);
+  constructor(componentFactoryResolver: ComponentFactoryResolver,sharedService:SharedService) {
+    super(sharedService, Helper.CreateComponentDict(), componentFactoryResolver,true);
   }
 
   ngAfterViewInit() {
-    this.setContainerRef(this._hostElement);
+    this.setContainerInfo({
+      staticComponentName:"middle-component",
+      hostingElement: this._hostElement});
   }
 }

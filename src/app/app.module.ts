@@ -14,7 +14,7 @@ import { PanelModule  ,DropdownModule,ButtonModule} from 'primeng/primeng';
 import { DropComponent2Component } from './drop-component-2/drop-component-2.component';
 import { DropComponent3Component } from './drop-component-3/drop-component-3.component';
 import { AppMenuComponent } from './app-menu/app-menu.component';
-
+import { SharedService} from "./base/shared.service";
 
 const appRoutes: Routes = [
   { path: 'dropComponent1', component: DropComponentComponent },
@@ -41,7 +41,7 @@ const appRoutes: Routes = [
     PanelModule ,DropdownModule,ButtonModule
   ],
   entryComponents: [AppMenuComponent,DropComponentComponent,DropComponent2Component,DropComponent3Component],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
