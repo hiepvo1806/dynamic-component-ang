@@ -5,6 +5,7 @@ export class BaseContainerClass {
     
     private componentDict = {};
     private hostElement: any;
+    private componentArr=[];
     constructor(componentDict: any, private componentFactoryResolver: ComponentFactoryResolver,private isDuplicateAllow:boolean) {
         this.componentDict = componentDict;
     }
@@ -28,6 +29,9 @@ export class BaseContainerClass {
         let viewContainerRef = this.hostElement.viewContainerRef;
         if (!isDuplicateAllow) viewContainerRef.clear();
         let componentRef = viewContainerRef.createComponent(componentFactory);
+        this.componentArr.push(foundComponent);
+        componentRef._component.index = this.componentArr.length;
+        componentRef._component.parentRef = viewContainerRef;
         //(<AdComponent>componentRef.instance).data = adItem.data;
     }
 
