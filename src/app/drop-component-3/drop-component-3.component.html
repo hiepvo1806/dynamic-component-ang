@@ -1,4 +1,9 @@
 <div id="drag3" draggable="true" (dragstart)="drag($event)" style="background: red; height:60px;display:inline-block;"
 class="col-lg-4 col-sm-12 col-md-6 col-xl-4 drop-comp">
-  <span>component 3</span>
+<div class="ui-g-12">
+    <div class="ui-g-8">
+      <button pButton label="Destroy" type="button" (click)="destroy()"></button>
+      <span>component 3</span>
+    </div>
+  </div>
 </div>
