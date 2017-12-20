@@ -9,9 +9,9 @@ import { SelectItem } from 'primeng/primeng';
 })
 export class ComponentFactoryComponent implements OnInit {
   public componentOptions: SelectItem[] = [
-    { label: "dropComponent 1", value: "dropComponent1" },
-    { label: "dropComponent 2", value: "dropComponent2" },
-    { label: "dropComponent 3", value: "dropComponent3" },
+    { label: "Component 1", value: "dropComponent1" },
+    { label: "Component 2", value: "dropComponent2" },
+    { label: "Component 3", value: "dropComponent3" },
   ];
 
   public classOptions: SelectItem[] = [
